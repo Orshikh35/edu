@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -12,11 +14,15 @@ export const metadata: Metadata = {
   description: "A premium platform for professional training and education.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
   return (
     <html lang="en" className="scroll-smooth">
       <body
@@ -25,7 +31,7 @@ export default function RootLayout({
           inter.variable
         )}
       >
-        <Navbar />
+        <Navbar session={session} />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

@@ -4,98 +4,104 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { signOut } from "@/lib/actions/auth-actions";
 
-export function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+type SessionUser = {
+  id: string;
+  email: string;
+  name: string | null;
+  emailVerified: boolean;
+  image?: string | null;
+  createdAt: Date; // <-- STRING биш DATE !!!
+  updatedAt: Date; // <-- STRING биш DATE !!!
+};
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+type SessionData = {
+  session: {
+    id: string;
+    userId: string;
+    token: string;
+    createdAt: Date;
+    updatedAt: Date;
+    expiresAt: Date;
+    ipAddress?: string | null;
+    userAgent?: string | null;
+  };
+  user: SessionUser;
+};
 
-    return (
-        <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-                <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                    <GraduationCap className="h-6 w-6 text-primary" />
-                    <span>EduPlatform</span>
-                </Link>
+export type Session = SessionData | null;
 
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-6">
-                    <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
-                        Home
-                    </Link>
-                    <Link href="/courses" className="text-sm font-medium hover:text-primary transition-colors">
-                        Courses
-                    </Link>
-                    <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
-                        About Us
-                    </Link>
-                    <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
-                        Contact
-                    </Link>
-                </div>
+export function Navbar({ session }: { session: Session }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isActive = (path: string) => pathname === path;
 
-                <div className="hidden md:flex items-center gap-4">
-                    <Link href="/login">
-                        <Button variant="ghost" size="sm">
-                            Log in
-                        </Button>
-                    </Link>
-                    <Link href="/register">
-                        <Button size="sm">Get Started</Button>
-                    </Link>
-                </div>
+  return (
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+          <GraduationCap className="h-6 w-6 text-primary" />
+          <span>EduPlatform</span>
+        </Link>
 
-                {/* Mobile Menu Button */}
-                <button className="md:hidden" onClick={toggleMenu}>
-                    {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
-            </div>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6">
+          <Link
+            href="/"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            Home
+          </Link>
+          <Link
+            href="/courses"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            Courses
+          </Link>
+          <Link
+            href="/about"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            About Us
+          </Link>
+          <Link
+            href="/contact"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            Contact
+          </Link>
+        </div>
 
-            {/* Mobile Menu */}
-            {isMenuOpen && (
-                <div className="md:hidden border-b bg-background">
-                    <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
-                        <Link
-                            href="/"
-                            className="text-sm font-medium hover:text-primary transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            href="/courses"
-                            className="text-sm font-medium hover:text-primary transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Courses
-                        </Link>
-                        <Link
-                            href="/about"
-                            className="text-sm font-medium hover:text-primary transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            About Us
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="text-sm font-medium hover:text-primary transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Contact
-                        </Link>
-                        <div className="flex flex-col gap-2 pt-4 border-t">
-                            <Link href="/login" onClick={() => setIsMenuOpen(false)}>
-                                <Button variant="ghost" className="w-full justify-start">
-                                    Log in
-                                </Button>
-                            </Link>
-                            <Link href="/register" onClick={() => setIsMenuOpen(false)}>
-                                <Button className="w-full">Get Started</Button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </nav>
-    );
+        {/* Desktop Right side – session-ээс хамааруулна */}
+        <div className="hidden md:flex items-center gap-4">
+          {!session?.user && (
+            <>
+              <Link href="/login">
+                <Button variant="ghost" size="sm">
+                  Log in
+                </Button>
+              </Link>
+              <Link href="/register">
+                <Button size="sm">Create account</Button>
+              </Link>
+            </>
+          )}
+
+          {session?.user && (
+            <form
+              action={async () => {
+                await signOut();
+                router.push("/login");
+              }}
+            >
+              <Button type="submit">Системээс гарах</Button>
+            </form>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
 }

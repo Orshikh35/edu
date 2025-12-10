@@ -3,8 +3,8 @@ import { GraduationCap, Facebook, Twitter, Instagram, Linkedin } from "lucide-re
 
 export function Footer() {
     return (
-        <footer className="bg-muted/50 border-t">
-            <div className="container mx-auto px-4 py-12 md:px-6">
+        <footer className="bg-muted/50 border-t w-full">
+            <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
