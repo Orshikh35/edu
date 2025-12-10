@@ -1,0 +1,20 @@
+{
+  "node": {
+    "7f492e30bd8d11cdf626301d6cc4540c3d72fdcde9": {
+      "workers": {
+        "app/_not-found/page": {
+          "moduleId": 95326,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/_not-found/page": "action-browser"
+      },
+      "exportedName": "signOut",
+      "filename": "lib/actions/auth-actions.ts"
+    }
+  },
+  "edge": {}
+}

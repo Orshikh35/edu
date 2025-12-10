@@ -1,0 +1,122 @@
+{
+  "node": {
+    "7f492e30bd8d11cdf626301d6cc4540c3d72fdcde9": {
+      "workers": {
+        "app/_not-found/page": {
+          "moduleId": 95326,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/about/page": {
+          "moduleId": 4087,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/contact/page": {
+          "moduleId": 72502,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/courses/[id]/page": {
+          "moduleId": 10009,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/courses/page": {
+          "moduleId": 9041,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/dashboard/page": {
+          "moduleId": 4135,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/login/page": {
+          "moduleId": 39109,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/page": {
+          "moduleId": 60688,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/register/page": {
+          "moduleId": 94978,
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/_not-found/page": "action-browser",
+        "app/about/page": "action-browser",
+        "app/contact/page": "action-browser",
+        "app/courses/[id]/page": "action-browser",
+        "app/courses/page": "action-browser",
+        "app/dashboard/page": "action-browser",
+        "app/login/page": "action-browser",
+        "app/page": "action-browser",
+        "app/register/page": "action-browser"
+      },
+      "filename": "lib/actions/auth-actions.ts",
+      "exportedName": "signOut"
+    },
+    "7fc9d15933a85799f028307f0a99bd9943fadee875": {
+      "workers": {
+        "app/login/page": {
+          "moduleId": 39109,
+          "async": true,
+          "exportedName": "signIn",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/login/page": "action-browser"
+      },
+      "filename": "lib/actions/auth-actions.ts",
+      "exportedName": "signIn"
+    },
+    "7f839ad4360f12830288a476cfed2ec052afa8c7de": {
+      "workers": {
+        "app/login/page": {
+          "moduleId": 39109,
+          "async": true,
+          "exportedName": "signInSocial",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/login/page": "action-browser"
+      },
+      "filename": "lib/actions/auth-actions.ts",
+      "exportedName": "signInSocial"
+    },
+    "7f0ddc5e51589e43f877073b873b3d8e766f240de0": {
+      "workers": {
+        "app/register/page": {
+          "moduleId": 94978,
+          "async": true,
+          "exportedName": "signUp",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/register/page": "action-browser"
+      },
+      "filename": "lib/actions/auth-actions.ts",
+      "exportedName": "signUp"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "LTiMFHM4qVmqs4RXzJMzdnSJiGevDIgaaSI5iDVp1ew="
+}
