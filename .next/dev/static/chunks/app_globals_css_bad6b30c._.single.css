@@ -24,6 +24,19 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-outline-style: solid;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-opacity: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-drop-shadow-color: initial;
+      --tw-drop-shadow-alpha: 100%;
+      --tw-drop-shadow-size: initial;
       --tw-backdrop-blur: initial;
       --tw-backdrop-brightness: initial;
       --tw-backdrop-contrast: initial;
@@ -41,9 +54,18 @@
   :root, :host {
     --font-sans: var(--font-inter);
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --color-red-500: #fb2c36;
+    --color-red-700: #bf000f;
     --color-yellow-400: #fac800;
+    --color-blue-600: #155dfc;
     --color-gray-100: #f3f4f6;
+    --color-gray-400: #99a1af;
+    --color-gray-500: #6a7282;
+    --color-gray-600: #4a5565;
+    --color-black: #000;
+    --color-white: #fff;
     --spacing: .25rem;
+    --container-md: 28rem;
     --container-3xl: 48rem;
     --container-5xl: 64rem;
     --text-xs: .75rem;
@@ -100,8 +122,14 @@
 
   @supports (color: lab(0% 0 0)) {
     :root, :host {
+      --color-red-500: lab(55.4814% 75.0732 48.8528);
+      --color-red-700: lab(40.4273% 67.2623 53.7441);
       --color-yellow-400: lab(83.2664% 8.65132 106.895);
+      --color-blue-600: lab(44.0605% 29.0279 -86.0352);
       --color-gray-100: lab(96.1596% -.0823438 -1.13575);
+      --color-gray-400: lab(65.9269% -.832707 -8.17473);
+      --color-gray-500: lab(47.7841% -.393182 -10.0268);
+      --color-gray-600: lab(35.6337% -1.58697 -10.8425);
     }
   }
 }
@@ -625,6 +653,10 @@
     max-width: 600px;
   }
 
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+
   .max-w-none {
     max-width: none;
   }
@@ -834,6 +866,14 @@
     }
   }
 
+  .bg-black {
+    background-color: var(--color-black);
+  }
+
+  .bg-blue-600 {
+    background-color: var(--color-blue-600);
+  }
+
   .bg-card {
     background-color: var(--color-card);
   }
@@ -884,6 +924,10 @@
     background-color: var(--color-secondary);
   }
 
+  .bg-white {
+    background-color: var(--color-white);
+  }
+
   .fill-yellow-400 {
     fill: var(--color-yellow-400);
   }
@@ -924,6 +968,10 @@
     padding-inline: calc(var(--spacing) * 4);
   }
 
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
@@ -934,10 +982,6 @@
 
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
-  }
-
-  .py-4 {
-    padding-block: calc(var(--spacing) * 4);
   }
 
   .py-12 {
@@ -952,12 +996,12 @@
     padding-top: calc(var(--spacing) * 0);
   }
 
-  .pt-4 {
-    padding-top: calc(var(--spacing) * 4);
-  }
-
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
+  }
+
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
   }
 
   .pb-2 {
@@ -1057,6 +1101,18 @@
     color: var(--color-foreground);
   }
 
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+
   .text-muted-foreground {
     color: var(--color-muted-foreground);
   }
@@ -1079,8 +1135,16 @@
     }
   }
 
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
+
   .text-secondary-foreground {
     color: var(--color-secondary-foreground);
+  }
+
+  .text-white {
+    color: var(--color-white);
   }
 
   .text-yellow-400 {
@@ -1095,6 +1159,10 @@
     font-style: italic;
   }
 
+  .line-through {
+    text-decoration-line: line-through;
+  }
+
   .underline {
     text-decoration-line: underline;
   }
@@ -1106,6 +1174,11 @@
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, #0000001a), 0 1px 2px -1px var(--tw-shadow-color, #0000001a);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
   .shadow-2xl {
@@ -1132,6 +1205,10 @@
     outline-width: 1px;
   }
 
+  .filter {
+    filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
+  }
+
   .backdrop-blur {
     --tw-backdrop-blur: blur(8px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
@@ -1154,14 +1231,6 @@
     transition-property: box-shadow;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
-  .peer-disabled\:cursor-not-allowed:is(:where(.peer):disabled ~ *) {
-    cursor: not-allowed;
-  }
-
-  .peer-disabled\:opacity-70:is(:where(.peer):disabled ~ *) {
-    opacity: .7;
   }
 
   .file\:border-0::file-selector-button {
@@ -1250,6 +1319,12 @@
   @media (hover: hover) {
     .hover\:text-primary:hover {
       color: var(--color-primary);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:text-red-700:hover {
+      color: var(--color-red-700);
     }
   }
 
@@ -1720,6 +1795,72 @@
   syntax: "*";
   inherits: false;
   initial-value: solid;
+}
+
+@property --tw-blur {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-invert {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false
 }
 
 @property --tw-backdrop-blur {

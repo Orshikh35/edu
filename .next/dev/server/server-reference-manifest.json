@@ -1,5 +1,65 @@
 {
-  "node": {},
+  "node": {
+    "7f0f27bbb8fc97ef781f92e0078150a3231f4ab503": {
+      "workers": {
+        "app/dashboard/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/login/page": {
+          "moduleId": "[project]/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        },
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/page": "action-browser",
+        "app/login/page": "action-browser",
+        "app/page": "action-browser"
+      },
+      "filename": "lib/actions/auth-actions.ts",
+      "exportedName": "signOut"
+    },
+    "7f73d73050cc3f11e223e0603e2ec166acd8e66454": {
+      "workers": {
+        "app/login/page": {
+          "moduleId": "[project]/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": true,
+          "exportedName": "signIn",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/login/page": "action-browser"
+      },
+      "filename": "lib/actions/auth-actions.ts",
+      "exportedName": "signIn"
+    },
+    "7f327696f5d8210df8f58f588a355f3cfc8c83edd4": {
+      "workers": {
+        "app/login/page": {
+          "moduleId": "[project]/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": true,
+          "exportedName": "signInSocial",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/login/page": "action-browser"
+      },
+      "filename": "lib/actions/auth-actions.ts",
+      "exportedName": "signInSocial"
+    }
+  },
   "edge": {},
   "encryptionKey": "6W55PokPpJsIf1Sn4CgDXEpLgsCGvPsdD/U6EmBAiEQ="
 }

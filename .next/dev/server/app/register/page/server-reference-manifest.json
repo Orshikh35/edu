@@ -1,4 +1,35 @@
 {
-  "node": {},
+  "node": {
+    "7f0f27bbb8fc97ef781f92e0078150a3231f4ab503": {
+      "workers": {
+        "app/register/page": {
+          "moduleId": "[project]/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": true,
+          "exportedName": "signOut",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/register/page": "action-browser"
+      },
+      "exportedName": "signOut",
+      "filename": "lib/actions/auth-actions.ts"
+    },
+    "7f1977bf0455202e0b92b76fb003bf006b5b05b5da": {
+      "workers": {
+        "app/register/page": {
+          "moduleId": "[project]/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": true,
+          "exportedName": "signUp",
+          "filename": "lib/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/register/page": "action-browser"
+      },
+      "exportedName": "signUp",
+      "filename": "lib/actions/auth-actions.ts"
+    }
+  },
   "edge": {}
 }

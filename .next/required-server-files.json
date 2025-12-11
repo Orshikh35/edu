@@ -99,7 +99,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/orshih/edu-clean",
+    "outputFileTracingRoot": "/Users/orshih/edu",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -289,11 +289,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "/Users/orshih/edu-clean"
+      "root": "/Users/orshih/edu"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "/Users/orshih/edu-clean",
+  "appDir": "/Users/orshih/edu",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",
